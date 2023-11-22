@@ -1,0 +1,30 @@
+clc; clear all; close all;
+theta=[0:1:360]*(pi/180);
+mod_I= 1e-6;
+Z0= 120*pi;
+lambda= 0.001; % in meters
+K0= 2*pi/lambda;
+dl= lambda/75;
+r0=lambda/100;
+const_factor_infinitesimal_dipole= (mod_I^2)*Z0*(K0^2)*(dl^2)/(32*pi^2);
+M=mod_I*pi*r0^2;
+const_factor_infinitesimal_loop= (M^2)*Z0*(K0^4)*(dl^2)/(32*pi^2);
+const_factor_lambda_by_two_dipole= (mod_I^2)*Z0/(32*pi^2);
+inf_dipole_pat= sin(theta).^2; 
+lambda_by_two_dipole_pat= ((2*cos((pi/2)*cos(theta)))./sin(theta)).^2;
+U_infinitesimal_dipole=const_factor_infinitesimal_dipole*inf_dipole_pat;
+U_infinitesimal_loop=const_factor_infinitesimal_loop*inf_dipole_pat;
+U_lambda_by_two_dipole=const_factor_lambda_by_two_dipole*lambda_by_two_dipole_pat;
+% polar(theta,U_infinitesimal_dipole);
+% polar(theta,U_infinitesimal_loop);
+% polar(theta,U_lambda_by_two_dipole);
+% Create figure
+figure('Color',[0.972549021244049 0.972549021244049 0.972549021244049]);
+colormap('jet');
+polar(theta,U_infinitesimal_dipole);
+figure('Color',[0.972549021244049 0.972549021244049 0.972549021244049]);
+colormap('jet');
+polar(theta,U_infinitesimal_loop);
+figure('Color',[0.972549021244049 0.972549021244049 0.972549021244049]);
+colormap('jet');
+polar(theta,U_lambda_by_two_dipole);
