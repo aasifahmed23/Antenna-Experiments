@@ -12,3 +12,28 @@ asamin('set', 'test_in_cost_func',0);
 
 [coeffs,db_n_pencil_array1,db_n_sector_array1,sllmax,drr,sllmax1,ppripmin,hpbw_pencil,hpbw_sector,sll_beamwidth_pencil,sll_beamwidth_sector]=common_plot(xstar);
 
+figure1 = figure;
+axes1= axes(...
+    'FontName','Times New Roman',...
+    'Fontsize', 14, ...
+    'YTick',[-70 -60 -50 -40 -30 -20 -10 0],...
+    'YTickLabel',['-70', '-60', '-50', '-40', '-30','-20', '-10', '0'],...
+    'Parent', figure1);
+
+ylim(axes1,[-75 0]);
+xlabel(axes1,'u=Sin\theta');
+ylabel(axes1,'Normalised Absolute Power Pattern(dB)');
+box(axes1,'on');
+hold(axes1,'all');
+
+u=-1:0.01;1;
+plot1=plot(u,db_n_pencil_array1,'k',u,db_n_sector_array1,'k');
+set(plot(1),'LineStyle','--','LineWidth',2);
+set(plot(2),'LineWidth',2);
+
+legend1= legend(...
+    axes1,{'Pencil Beam','Sector Beam'},...
+    'FontName', 'Times New Roman',...
+    'FontSize',14);
+
+toc;
