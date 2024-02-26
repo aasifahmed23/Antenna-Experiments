@@ -11,13 +11,14 @@ levels = 2^bits;
 base=-180;
 quantValues=[base:delta:180]';
 
-inputArray=repmat(vect, lenght(quantValues), 1);
-quantArray=repmat(quantValues, 1, lenght(vect));
+inputArray=repmat(vect, length(quantValues), 1);
+quantArray=repmat(quantValues, 1, length(vect));
 
 quantDiff=abs(inputArray-quantArray);
 [Y,I]= min(quantDiff);
 quantResults=quantArray(I);
 
+end
 function newVal = roundVal(num)
      num = num*1e4;
      num= round(num);
