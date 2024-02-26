@@ -5,7 +5,7 @@ xu=[1.000;1.000;1.000;1.000;1.000;1.000;1.000;1.000;1.000;1.000;180.005;180.005;
 xt=-1*ones(20,1);
 tic;
 
-asamin('set', 'randseed',696869);
+asamin('set', 'rand_seed',696869);
 asamin('set', 'asa_out_file','asatest2.log');
 asamin('set', 'test_in_cost_func',0);
 [fstar,xstar,grad,hessian,state]=asamin('minimize', 'cost_variable_amp_n_phase',xinit,xl,xu,xt);
