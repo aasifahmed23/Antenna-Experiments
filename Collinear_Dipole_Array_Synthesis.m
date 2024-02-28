@@ -11,7 +11,8 @@ asamin('set', 'test_in_cost_func',0);
 [fstar,xstar,grad,hessian,state]=asamin('minimize', 'cost_variable_amp_n_phase',xinit,xl,xu,xt);
 
 [coeffs,db_n_pencil_array1,db_n_sector_array1,sllmax,drr,sllmax1,ppripmin,hpbw_pencil,hpbw_sector,sll_beamwidth_pencil,sll_beamwidth_sector]=common_plot(xstar);
-
+toc;
+%%
 figure1 = figure;
 axes1= axes(...
     'FontName','Times New Roman',...
@@ -26,7 +27,7 @@ ylabel(axes1,'Normalised Absolute Power Pattern(dB)');
 box(axes1,'on');
 hold(axes1,'all');
 
-u=-1:0.01;1;
+u=-1:0.01:1;
 plot1=plot(u,db_n_pencil_array1,'k',u,db_n_sector_array1,'k');
 set(plot(1),'LineStyle','--','LineWidth',2);
 set(plot(2),'LineWidth',2);
@@ -36,4 +37,5 @@ legend1= legend(...
     'FontName', 'Times New Roman',...
     'FontSize',14);
 
-toc;
+%%
+% toc;
