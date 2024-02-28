@@ -6,7 +6,7 @@ if (M>1),
     vect=vect';
 end
 range = 360;
-delta = roundVal(range/2*(bits));
+delta = roundVal(range/2^(bits));
 levels = 2^bits;
 base=-180;
 quantValues=[base:delta:180]';
@@ -23,6 +23,4 @@ function newVal = roundVal(num)
      num = num*1e4;
      num= round(num);
      newVal= num*1e-4;
-
 end
-
